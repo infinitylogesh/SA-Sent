@@ -41,7 +41,7 @@ def log_sum_exp_m(mat):
         max_score_broadcast = max_score.view( -1).expand(1, vec.size()[0])
         ret_l.append( max_score + \
         torch.log(torch.sum(torch.exp(vec - max_score_broadcast))))
-    return torch.cat(ret_l, 0)
+    return torch.cat(ret_l.unqueeze(0), 0)
 
 def log_sum_exp(vec_list):
     tmp_mat = torch.stack(vec_list, 0)
