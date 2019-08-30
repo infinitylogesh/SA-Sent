@@ -96,4 +96,4 @@ class AspectSent(nn.Module):
         scores, s_probs, best_seqs = self.compute_predict_scores(sent, mask)
         _, pred_label = scores.max(0)        
 
-        return pred_label.data[0], best_seqs
+        return pred_label.data, best_seqs
